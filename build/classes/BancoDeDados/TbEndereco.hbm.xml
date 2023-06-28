@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 06/06/2023 20:44:58 by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+  <class catalog="app_mecanico" name="BancoDeDados.TbEndereco" table="tb_endereco">
+    <id name="endId" type="java.lang.Integer">
+      <column name="end_id"/>
+      <generator class="identity"/>
+    </id>
+    <many-to-one class="BancoDeDados.TbEndPostal" fetch="select" name="tbEndPostal">
+      <column name="end_endP_id" not-null="true"/>
+    </many-to-one>
+    <property name="endNumero" type="string">
+      <column name="end_numero" not-null="true"/>
+    </property>
+    <property name="endComplemento" type="string">
+      <column length="45" name="end_complemento"/>
+    </property>
+    <set fetch="select" inverse="true" lazy="true" name="tbEntidades" table="tb_entidade">
+      <key>
+        <column name="ent_endereco" not-null="true"/>
+      </key>
+      <one-to-many class="BancoDeDados.TbEntidade"/>
+    </set>
+  </class>
+</hibernate-mapping>

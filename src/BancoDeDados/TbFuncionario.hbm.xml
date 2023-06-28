@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 06/06/2023 20:44:58 by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+  <class catalog="app_mecanico" name="BancoDeDados.TbFuncionario" table="tb_funcionario">
+    <id name="funcId" type="java.lang.Integer">
+      <column name="func_id"/>
+      <generator class="identity"/>
+    </id>
+    <many-to-one class="BancoDeDados.TbCargo" fetch="select" name="tbCargo">
+      <column name="func_cargo" not-null="true"/>
+    </many-to-one>
+    <many-to-one class="BancoDeDados.TbEntidade" fetch="select" name="tbEntidade">
+      <column length="15" name="func_ent_cpfCnpj" not-null="true"/>
+    </many-to-one>
+    <property name="funcUsuario" type="string">
+      <column length="20" name="func_usuario" not-null="true"/>
+    </property>
+    <property name="funcSenha" type="string">
+      <column length="200" name="func_senha" not-null="true"/>
+    </property>
+  </class>
+</hibernate-mapping>

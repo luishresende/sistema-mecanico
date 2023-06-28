@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 06/06/2023 20:44:58 by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+  <class catalog="app_mecanico" name="BancoDeDados.TbCidEst" table="tb_cidEst">
+    <id name="cepId" type="java.lang.Integer">
+      <column name="cep_id"/>
+      <generator class="identity"/>
+    </id>
+    <many-to-one class="BancoDeDados.TbCidade" fetch="select" name="tbCidade">
+      <column name="cep_cid_codigo" not-null="true"/>
+    </many-to-one>
+    <many-to-one class="BancoDeDados.TbEstado" fetch="select" name="tbEstado">
+      <column length="2" name="cep_est_sigla" not-null="true"/>
+    </many-to-one>
+    <set fetch="select" inverse="true" lazy="true" name="tbEndPostals" table="tb_end_postal">
+      <key>
+        <column name="endP_cep_id" not-null="true"/>
+      </key>
+      <one-to-many class="BancoDeDados.TbEndPostal"/>
+    </set>
+  </class>
+</hibernate-mapping>

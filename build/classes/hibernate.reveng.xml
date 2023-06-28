@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd">
+<hibernate-reverse-engineering>
+  <schema-selection match-catalog="app_mecanico"/>
+  <table-filter match-name="tb_funcionario"/>
+  <table-filter match-name="tb_fornecedor"/>
+  <table-filter match-name="tb_ven_peca"/>
+  <table-filter match-name="tb_bairro"/>
+  <table-filter match-name="tb_cidEst"/>
+  <table-filter match-name="tb_peca"/>
+  <table-filter match-name="tb_end_postal"/>
+  <table-filter match-name="tb_logradouro"/>
+  <table-filter match-name="tb_venda_ser"/>
+  <table-filter match-name="tb_veiculo"/>
+  <table-filter match-name="tb_cliente"/>
+  <table-filter match-name="tb_estado"/>
+  <table-filter match-name="tb_venda"/>
+  <table-filter match-name="tb_tipo_pagamento"/>
+  <table-filter match-name="tb_cargo"/>
+  <table-filter match-name="tb_fornecedor_has_peca"/>
+  <table-filter match-name="tb_estoque"/>
+  <table-filter match-name="tb_entidade"/>
+  <table-filter match-name="tb_cidade"/>
+  <table-filter match-name="tb_endereco"/>
+</hibernate-reverse-engineering>

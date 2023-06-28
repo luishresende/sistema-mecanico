@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 06/06/2023 20:44:58 by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+  <class catalog="app_mecanico" name="BancoDeDados.TbCargo" table="tb_cargo">
+    <id name="carId" type="int">
+      <column name="car_id"/>
+      <generator class="assigned"/>
+    </id>
+    <property name="carDescricao" type="string">
+      <column length="45" name="car_descricao" not-null="true"/>
+    </property>
+    <property name="carSalarioBase" type="double">
+      <column name="car_salarioBase" not-null="true" precision="22" scale="0"/>
+    </property>
+    <set fetch="select" inverse="true" lazy="true" name="tbFuncionarios" table="tb_funcionario">
+      <key>
+        <column name="func_cargo" not-null="true"/>
+      </key>
+      <one-to-many class="BancoDeDados.TbFuncionario"/>
+    </set>
+  </class>
+</hibernate-mapping>

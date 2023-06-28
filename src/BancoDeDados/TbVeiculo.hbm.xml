@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 06/06/2023 20:44:58 by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+  <class catalog="app_mecanico" name="BancoDeDados.TbVeiculo" table="tb_veiculo">
+    <id name="veiId" type="java.lang.Integer">
+      <column name="vei_id"/>
+      <generator class="identity"/>
+    </id>
+    <property name="veiModelo" type="string">
+      <column length="100" name="vei_modelo" not-null="true"/>
+    </property>
+    <property name="veiMarca" type="string">
+      <column length="100" name="vei_marca" not-null="true"/>
+    </property>
+    <property name="veiPlaca" type="string">
+      <column length="100" name="vei_placa" not-null="true"/>
+    </property>
+    <property name="veiEmpId" type="java.lang.Integer">
+      <column name="vei_emp_id"/>
+    </property>
+    <property name="veiPesId" type="java.lang.Integer">
+      <column name="vei_pes_id"/>
+    </property>
+    <set fetch="select" inverse="true" lazy="true" name="tbVendaSers" table="tb_venda_ser">
+      <key>
+        <column name="vs_vei_id" not-null="true"/>
+      </key>
+      <one-to-many class="BancoDeDados.TbVendaSer"/>
+    </set>
+  </class>
+</hibernate-mapping>

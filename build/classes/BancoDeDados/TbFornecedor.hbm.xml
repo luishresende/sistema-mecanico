@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 06/06/2023 20:44:58 by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+  <class catalog="app_mecanico" name="BancoDeDados.TbFornecedor" table="tb_fornecedor">
+    <id name="forId" type="java.lang.Integer">
+      <column name="for_id"/>
+      <generator class="identity"/>
+    </id>
+    <many-to-one class="BancoDeDados.TbEntidade" fetch="select" name="tbEntidade">
+      <column length="15" name="for_entCnpj" not-null="true"/>
+    </many-to-one>
+    <set fetch="select" inverse="true" lazy="true" name="tbFornecedorHasPecas" table="tb_fornecedor_has_peca">
+      <key>
+        <column name="fp_for_id" not-null="true"/>
+      </key>
+      <one-to-many class="BancoDeDados.TbFornecedorHasPeca"/>
+    </set>
+  </class>
+</hibernate-mapping>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 06/06/2023 20:44:58 by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+  <class catalog="app_mecanico" name="BancoDeDados.TbEndPostal" table="tb_end_postal">
+    <id name="endPId" type="java.lang.Integer">
+      <column name="endP_id"/>
+      <generator class="identity"/>
+    </id>
+    <many-to-one class="BancoDeDados.TbLogradouro" fetch="select" name="tbLogradouro">
+      <column name="endP_log_id" not-null="true"/>
+    </many-to-one>
+    <many-to-one class="BancoDeDados.TbBairro" fetch="select" name="tbBairro">
+      <column name="endP_bai_id" not-null="true"/>
+    </many-to-one>
+    <many-to-one class="BancoDeDados.TbCidEst" fetch="select" name="tbCidEst">
+      <column name="endP_cep_id" not-null="true"/>
+    </many-to-one>
+    <property name="endPNomerua" type="string">
+      <column length="45" name="endP_nomerua" not-null="true"/>
+    </property>
+    <property name="endPCep" type="string">
+      <column length="9" name="endP_CEP" not-null="true"/>
+    </property>
+    <set fetch="select" inverse="true" lazy="true" name="tbEnderecos" table="tb_endereco">
+      <key>
+        <column name="end_endP_id" not-null="true"/>
+      </key>
+      <one-to-many class="BancoDeDados.TbEndereco"/>
+    </set>
+  </class>
+</hibernate-mapping>

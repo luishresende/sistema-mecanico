@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 06/06/2023 20:44:58 by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+  <class catalog="app_mecanico" name="BancoDeDados.TbPeca" table="tb_peca">
+    <id name="peId" type="java.lang.Integer">
+      <column name="pe_id"/>
+      <generator class="identity"/>
+    </id>
+    <property name="peDescricao" type="string">
+      <column length="45" name="pe_descricao" not-null="true"/>
+    </property>
+    <property name="peQuantMin" type="float">
+      <column name="pe_quant_min" not-null="true"/>
+    </property>
+    <property name="peQuantRepos" type="int">
+      <column name="pe_quant_repos" not-null="false"/>
+    </property>
+    <set fetch="select" inverse="true" lazy="true" name="tbFornecedorHasPecas" table="tb_fornecedor_has_peca">
+      <key>
+        <column name="fp_pe_id" not-null="true"/>
+      </key>
+      <one-to-many class="BancoDeDados.TbFornecedorHasPeca"/>
+    </set>
+  </class>
+</hibernate-mapping>

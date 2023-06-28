@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 06/06/2023 20:44:58 by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+  <class catalog="app_mecanico" name="BancoDeDados.TbEstoque" table="tb_estoque">
+    <id name="estoId" type="java.lang.Integer">
+      <column name="esto_id"/>
+      <generator class="identity"/>
+    </id>
+    <many-to-one class="BancoDeDados.TbFornecedorHasPeca" fetch="select" name="tbFornecedorHasPeca">
+      <column name="esto_fp_id" not-null="true"/>
+    </many-to-one>
+    <property name="estoQuantidade" type="float">
+      <column name="esto_quantidade" not-null="true"/>
+    </property>
+    <property name="estoValorUni" type="float">
+      <column name="esto_valor_uni" not-null="true"/>
+    </property>
+    <property name="estoMargeLucro" type="float">
+      <column name="esto_margLucro" not-null="true"/>
+    </property>
+    <property name="estoMedida" type="string">
+      <column length="8" name="esto_medida"/>
+    </property>
+    <set fetch="select" inverse="true" lazy="true" name="tbVenPecas" table="tb_ven_peca">
+      <key>
+        <column name="vp_esto_id" not-null="true"/>
+      </key>
+      <one-to-many class="BancoDeDados.TbVenPeca"/>
+    </set>
+  </class>
+</hibernate-mapping>

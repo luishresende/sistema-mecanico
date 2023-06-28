@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 06/06/2023 20:44:58 by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+  <class catalog="app_mecanico" name="BancoDeDados.TbVendaSer" table="tb_venda_ser">
+    <id name="vsId" type="java.lang.Integer">
+      <column name="vs_id"/>
+      <generator class="identity"/>
+    </id>
+    <many-to-one class="BancoDeDados.TbVenda" fetch="select" name="tbVenda">
+      <column name="vs_ven_id" not-null="true"/>
+    </many-to-one>
+    <many-to-one class="BancoDeDados.TbVeiculo" fetch="select" name="tbVeiculo">
+      <column name="vs_vei_id" not-null="true"/>
+    </many-to-one>
+    <property name="vsValorServico" type="float">
+      <column name="vs_valor_servico" not-null="true" precision="10"/>
+    </property>
+    <property name="vsSerDescricao" type="string">
+      <column length="300" name="vs_ser_descricao" not-null="true"/>
+    </property>
+    <property name="vsKmPercorrido" type="java.lang.Float">
+      <column name="vs_km_percorrido"/>
+    </property>
+    <property name="vsValorKm" type="java.lang.Float">
+      <column name="vs_valor_km" precision="10"/>
+    </property>
+  </class>
+</hibernate-mapping>

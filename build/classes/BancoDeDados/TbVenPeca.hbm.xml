@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 06/06/2023 20:44:58 by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+  <class catalog="app_mecanico" name="BancoDeDados.TbVenPeca" table="tb_ven_peca">
+    <id name="vpId" type="java.lang.Integer">
+      <column name="vp_id"/>
+      <generator class="identity"/>
+    </id>
+    <many-to-one class="BancoDeDados.TbVenda" fetch="select" name="tbVenda">
+      <column name="vp_ven_id" not-null="true"/>
+    </many-to-one>
+    <many-to-one class="BancoDeDados.TbEstoque" fetch="select" name="tbEstoque">
+      <column name="vp_esto_id" not-null="true"/>
+    </many-to-one>
+    <property name="vpQuantidade" type="int">
+      <column name="vp_quantidade" not-null="true"/>
+    </property>
+  </class>
+</hibernate-mapping>

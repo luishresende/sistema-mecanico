@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 06/06/2023 20:44:58 by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+  <class catalog="app_mecanico" name="BancoDeDados.TbEntidade" table="tb_entidade">
+    <id name="entCpfCnpj" type="string">
+      <column length="15" name="ent_cpfCnpj"/>
+      <generator class="assigned"/>
+    </id>
+    <many-to-one class="BancoDeDados.TbEndereco" fetch="select" name="tbEndereco">
+      <column name="ent_endereco" not-null="true"/>
+    </many-to-one>
+    <property name="entNome" type="string">
+      <column length="100" name="ent_nome" not-null="true"/>
+    </property>
+    <property name="entNomeFantasia" type="string">
+      <column length="100" name="ent_nomeFantasia" not-null="true"/>
+    </property>
+    <property name="entRgIe" type="string">
+      <column length="14" name="ent_rgIe" not-null="true"/>
+    </property>
+    <property name="entFone" type="string">
+      <column length="12" name="ent_fone" not-null="true"/>
+    </property>
+    <property name="entEmail" type="string">
+      <column length="100" name="ent_email" not-null="true"/>
+    </property>
+    <property name="entSexo" type="string">
+      <column length="4" name="ent_sexo"/>
+    </property>
+    <property name="entDtNasc" type="date">
+      <column length="10" name="ent_dtNasc"/>
+    </property>
+    <property name="entTipo" type="string">
+      <column length="15" name="ent_tipo" not-null="true"/>
+    </property>
+    <set fetch="select" inverse="true" lazy="true" name="tbFuncionarios" table="tb_funcionario">
+      <key>
+        <column length="15" name="func_ent_cpfCnpj" not-null="true"/>
+      </key>
+      <one-to-many class="BancoDeDados.TbFuncionario"/>
+    </set>
+    <set fetch="select" inverse="true" lazy="true" name="tbFornecedors" table="tb_fornecedor">
+      <key>
+        <column length="15" name="for_entCnpj" not-null="true"/>
+      </key>
+      <one-to-many class="BancoDeDados.TbFornecedor"/>
+    </set>
+    <set fetch="select" inverse="true" lazy="true" name="tbClientes" table="tb_cliente">
+      <key>
+        <column length="15" name="cli_cpfCnpj" not-null="true"/>
+      </key>
+      <one-to-many class="BancoDeDados.TbCliente"/>
+    </set>
+  </class>
+</hibernate-mapping>

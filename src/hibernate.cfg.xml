@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+    <property name="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+    <property name="hibernate.connection.url">jdbc:mysql://186.250.29.200:3306/app_mecanico?zeroDateTimeBehavior=convertToNull</property>
+    <property name="hibernate.connection.username">projeto_poo</property>
+    <property name="hibernate.connection.password">21062023_projetopoo</property>
+    <mapping resource="BancoDeDados/TbCargo.hbm.xml"/>
+    <mapping resource="BancoDeDados/TbVendaSer.hbm.xml"/>
+    <mapping resource="BancoDeDados/TbEstado.hbm.xml"/>
+    <mapping resource="BancoDeDados/TbFornecedorHasPeca.hbm.xml"/>
+    <mapping resource="BancoDeDados/TbEndereco.hbm.xml"/>
+    <mapping resource="BancoDeDados/TbCliente.hbm.xml"/>
+    <mapping resource="BancoDeDados/TbFornecedor.hbm.xml"/>
+    <mapping resource="BancoDeDados/TbLogradouro.hbm.xml"/>
+    <mapping resource="BancoDeDados/TbEstoque.hbm.xml"/>
+    <mapping resource="BancoDeDados/TbVeiculo.hbm.xml"/>
+    <mapping resource="BancoDeDados/TbPeca.hbm.xml"/>
+    <mapping resource="BancoDeDados/TbCidade.hbm.xml"/>
+    <mapping resource="BancoDeDados/TbVenPeca.hbm.xml"/>
+    <mapping resource="BancoDeDados/TbBairro.hbm.xml"/>
+    <mapping resource="BancoDeDados/TbEntidade.hbm.xml"/>
+    <mapping resource="BancoDeDados/TbTipoPagamento.hbm.xml"/>
+    <mapping resource="BancoDeDados/TbEndPostal.hbm.xml"/>
+    <mapping resource="BancoDeDados/TbVenda.hbm.xml"/>
+    <mapping resource="BancoDeDados/TbFuncionario.hbm.xml"/>
+    <mapping resource="BancoDeDados/TbCidEst.hbm.xml"/>
+  </session-factory>
+</hibernate-configuration>

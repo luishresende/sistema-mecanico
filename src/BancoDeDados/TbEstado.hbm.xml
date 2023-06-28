@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 06/06/2023 20:44:58 by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+  <class catalog="app_mecanico" name="BancoDeDados.TbEstado" table="tb_estado">
+    <id name="estSigla" type="string">
+      <column length="2" name="est_sigla"/>
+      <generator class="assigned"/>
+    </id>
+    <property name="estDescricao" type="string">
+      <column length="45" name="est_descricao" not-null="true"/>
+    </property>
+    <set fetch="select" inverse="true" lazy="true" name="tbCidEsts" table="tb_cidEst">
+      <key>
+        <column length="2" name="cep_est_sigla" not-null="true"/>
+      </key>
+      <one-to-many class="BancoDeDados.TbCidEst"/>
+    </set>
+  </class>
+</hibernate-mapping>
